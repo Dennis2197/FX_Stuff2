@@ -9,6 +9,9 @@ import java.io.File;
 
 public class Controller {
   private final MusicPlayer musicPlayer = new MusicPlayer();
+  protected File file;
+  protected boolean musicPlaying = false;
+
 
   @FXML
     protected Label fileLabel;
@@ -18,14 +21,24 @@ public class Controller {
 
     Stage stage = (Stage) fileLabel.getScene().getWindow();
     FileChooser fileChooser = new FileChooser();
-    File file = fileChooser.showOpenDialog(stage);
+    file = fileChooser.showOpenDialog(stage);
     fileLabel.setText(file.getAbsolutePath());
 
   }
 
-/*  @FXML
+  @FXML
   protected void onPlay(){
-    if (fileLabel != null) {
+    if (fileLabel != null && !musicPlaying) {
+      musicPlayer.playMusic(file.getAbsolutePath());
+      musicPlaying = true;
     }
-  }*/
+  }
+
+  @FXML
+  protected void onStop(){
+    if (fileLabel != null && musicPlaying){
+      musicPlayer.stopMusic();
+      musicPlaying = false;
+    }
+  }
 }

@@ -20,6 +20,6 @@
       <Label fx:id="fileLabel" text="Datei:" />
       <Button mnemonicParsing="false" onAction="#onFile" text="File" />
       <Button mnemonicParsing="false" onAction="#onPlay" text="Play" />
-      <Button mnemonicParsing="false" text="Stop" />
+      <Button mnemonicParsing="false" onAction="#onStop" text="Stop" />
    </children>
 </VBox>
